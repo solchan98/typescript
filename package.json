@@ -1,12 +1,22 @@
 {
-  "name": "typescript",
+  "name": "typescript_pra",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solchan98/typescript.git"
+  },
+  "author": "solchan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/solchan98/typescript/issues"
+  },
+  "homepage": "https://github.com/solchan98/typescript#readme",
+  "dependencies": {
+    "typescript": "^4.3.5"
+  }
 }
