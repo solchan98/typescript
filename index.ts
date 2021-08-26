@@ -1,9 +1,13 @@
-function printMe(
-    me: { name: string, age: number }
-) {
-    console.log(
-        `name: ${me.name}, age: ${me.age}`
-    )
+const part1: object = {
+    name: 'solchan'
 }
 
-printMe({ name: 'solchan', age: 24});
+const part2: object = {
+    country: 'Korea',
+    address: 'YongIn',
+}
+
+const user = { ...part1, ...part2 };
+console.log(part1);
+console.log(part2);
+console.log(user);
