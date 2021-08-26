@@ -65,3 +65,53 @@ let val: undefined = undefined; // 타입: undefined, 값: undefined
 
 val = 1; // 불가능, val 타입이 undefined이기 때문에 number는 불가능
 ```
+
+## 인터페이스
+
+타입스크립트에서 object타입으로 선언된 변수는 number, boolean, string 타입의 값을 가질 수는 없지만, 속성이 다른 object에 대해서는 마치 any타입처럼 담겨집니다.
+```typescript
+let obj: object = { name: 'solchan'};
+obj = { name: 'sochan', age: 24};
+```
+1번 코드는 name만을 갖는 object이고, 2번 코드는 name, age를 갖는 object입니다. 서로 속성이 다르지만, object로 타입이 같아 위 코드가 가능합니다.    
+
+이런 부분을 해결하기 위해 인터페이스 구문이 고안되었고, 아래와 같은 방법으로 사용이 됩니다.
+```typescript
+interface 이름 {
+    속성: 타입
+}
+```
+예시
+```typescript
+// User
+interface User {
+    name: string;
+    age: number;
+    phone?: string; // 변수명 + ? 는 선택 항목을 뜻한다.
+}
+```
+위 인터페이스를 통해 예시를 보면,
+```typescript
+let user1: User = { name: 'solchan', age: 24 }
+// user1 -> 필수 항목인 name과 age 모두 초기화, 성공!
+let user2: User = { name: 'solchan', phone: '123-123' }
+// user2 -> 팔수 항목인 age가 없엄, 오류!
+let user3: User = { name: 'solchan', age: 24, location: 'YongIn' }
+// user3 -> 필수 항목이 모두 있지만 location은 인터페이스에 없음, 오류!
+let user4: User = { name: 'sochan', age: 24, phone: '123-123' }
+// user4 -> 필수가 모두 존재하고 phone은 선택으로 존재한다, 성공!
+```
+
+마지막으로 익명으로 인터페이스 사용하기.  
+```typescript
+// 위 User인터페이스를 사용하지 않는다.
+let account: { email: string, password: string } = { email: 'solchan@interface.hello', password: 'typescript' }
+```
+익명 인터페이스는 주로 함수에서 사용된다.
+```typescript
+function printMe( me: { name: string, age: number }) {
+    console.log( `name: ${me.name}, age: ${me.age}` )
+}
+
+printMe({ name: 'solchan', age: 24});
+```
