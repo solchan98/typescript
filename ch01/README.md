@@ -284,4 +284,4 @@ console.log(user);
 // 출력(part2) -> { country: 'Korea', address: 'YongIn' }
 // 출력(user) -> { name: 'solchan', country: 'Korea', address: 'YongIn' }
 ```
-10번 코드를 보면, part1, part2를 합하여 user를 만드는 것을 알 수 있다.
+10번 코드를 보면, part1, part2를 합하여 user를 만드는 것을 알 수 있다. 
