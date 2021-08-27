@@ -1,13 +1,24 @@
-const part1: object = {
-    name: 'solchan'
+class Calc {
+    constructor(public a: number, public b: number){};
+    add() {
+        this.a += this.b;
+        return this;
+    }
+    mul() {
+        this.a *= this.a;
+        return this;
+    }
+    sayResult(): void {
+        console.log(this.a);
+    }
 }
 
-const part2: object = {
-    country: 'Korea',
-    address: 'YongIn',
-}
+const calc = new Calc(1, 2);
 
-const user = { ...part1, ...part2 };
-console.log(part1);
-console.log(part2);
-console.log(user);
+calc.add().mul().sayResult();
+
+/**
+ * 1 + 2 = 3
+ * 3 * 3 = 9
+ * result  9
+ */
